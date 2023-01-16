@@ -16,4 +16,23 @@ public class Project {
     @Column(name = "name", unique = true)
     private String name;
 
+    public Project() {
+    }
+
+    public Project(UUID id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Project(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
