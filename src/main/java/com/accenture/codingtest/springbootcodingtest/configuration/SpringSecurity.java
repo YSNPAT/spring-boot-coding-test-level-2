@@ -43,6 +43,8 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/users/**").hasRole(UserRole.ADMIN.toString())
                 .antMatchers(HttpMethod.POST, "/api/v1/projects").hasRole(UserRole.PRODUCT_OWNER.toString())
                 .antMatchers(HttpMethod.POST, "/api/v1/projects/").hasRole(UserRole.PRODUCT_OWNER.toString())
+                .antMatchers(HttpMethod.PUT, "/api/v1/projects/**").hasRole(UserRole.PRODUCT_OWNER.toString())
+                .antMatchers(HttpMethod.PATCH, "/api/v1/projects/**").hasRole(UserRole.PRODUCT_OWNER.toString())
                 .antMatchers(HttpMethod.DELETE, "/api/v1/projects/**").hasRole(UserRole.PRODUCT_OWNER.toString())
                 .antMatchers(HttpMethod.POST, "/api/v1/tasks").hasRole(UserRole.PRODUCT_OWNER.toString())
                 .antMatchers(HttpMethod.POST, "/api/v1/tasks/").hasRole(UserRole.PRODUCT_OWNER.toString())
