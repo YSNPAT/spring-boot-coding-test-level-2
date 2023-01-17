@@ -31,7 +31,6 @@ public class UserController {
         }
     }
 
-    //    @RolesAllowed("ADMIN")
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable UUID id) {
         try {
@@ -41,7 +40,6 @@ public class UserController {
         }
     }
 
-    //    @RolesAllowed("ADMIN")
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
         try {
