@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,9 +22,14 @@ public class ProjectController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Project>> getAllProjects() {
+    public ResponseEntity<List<Project>> getAllProjects(
+            @RequestParam(value = "q", required = false) String q,
+            @RequestParam(value = "pageIndex", defaultValue = "0", required = false) int pageIndex,
+            @RequestParam(value = "pageSize", defaultValue = "3", required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = "name", required = false) String sortBy,
+            @RequestParam(value = "sortDirection", defaultValue = "ASC", required = false) String sortDirection) {
         try {
-            return new ResponseEntity<>(projectService.getAllProjects(), HttpStatus.OK);
+            return new ResponseEntity<>(projectService.getAllProjects(q, pageIndex, pageSize, sortBy, sortDirection), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }

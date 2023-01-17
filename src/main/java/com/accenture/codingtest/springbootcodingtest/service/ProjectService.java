@@ -1,13 +1,19 @@
 package com.accenture.codingtest.springbootcodingtest.service;
 
 import com.accenture.codingtest.springbootcodingtest.entity.Project;
+import com.accenture.codingtest.springbootcodingtest.entity.User;
 import com.accenture.codingtest.springbootcodingtest.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -21,12 +27,25 @@ public class ProjectService {
         this.projectRepository = projectRepository;
     }
 
-    public List<Project> getAllProjects() {
-        return projectRepository.findAll();
+    public List<Project> getAllProjects(String q, int pageIndex, int pageSize, String sortBy, String sortDirection) {
+        Sort.Direction direction = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.Direction.ASC : Sort.Direction.DESC;
+        List<Sort.Order> orders = new ArrayList<Sort.Order>();
+        orders.add(new Sort.Order(direction, sortBy));
+        Pageable pageable = PageRequest.of(pageIndex, pageSize, Sort.by(orders));
+        Page<Project> pageProjects;
+        if (q == null)
+            pageProjects = projectRepository.findAll(pageable);
+        else
+            pageProjects = projectRepository.findAllByNameContaining(q, pageable);
+        return pageProjects.getContent();
     }
 
-    public Project getProjectById(UUID id) {
-        return projectRepository.findById(id).orElseThrow();
+    public Project getProjectById(UUID id) throws Exception {
+        Optional<Project> existingProject = projectRepository.findById(id);
+        if (existingProject.isPresent())
+            return existingProject.get();
+        else
+            throw new Exception("User not found");
     }
 
     public Project createProject(Project project) throws Exception {
