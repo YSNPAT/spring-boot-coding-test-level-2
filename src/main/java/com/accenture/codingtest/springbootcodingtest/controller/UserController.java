@@ -22,13 +22,12 @@ public class UserController {
         this.userService = userService;
     }
 
-
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         try {
             return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -37,37 +36,34 @@ public class UserController {
         try {
             return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
         try {
-            userService.createUser(user);
-            return new ResponseEntity<>(HttpStatus.CREATED);
+            return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable UUID id, @RequestBody User user) {
         try {
-            userService.updateUser(id, user);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(userService.updateUser(id, user), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<User> patchUser(@PathVariable UUID id, @RequestBody User user) {
         try {
-            userService.patchUser(id, user);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(userService.patchUser(id, user), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -75,9 +71,9 @@ public class UserController {
     public ResponseEntity<HttpStatus> deleteUser(@PathVariable UUID id) {
         try {
             userService.deleteUser(id);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity("User has been deleted", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 }

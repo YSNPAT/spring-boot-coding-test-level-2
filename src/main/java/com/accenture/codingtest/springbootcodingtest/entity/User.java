@@ -1,5 +1,7 @@
 package com.accenture.codingtest.springbootcodingtest.entity;
 
+import com.accenture.codingtest.springbootcodingtest.constant.UserRole;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.UUID;

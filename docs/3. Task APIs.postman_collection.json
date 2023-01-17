@@ -1,0 +1,1309 @@
+{
+	"info": {
+		"_postman_id": "6a74652a-8a11-4b5e-ae2a-95ff7c10b5da",
+		"name": "Task APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET/**",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 1\",\r\n   \"description\":\"\",\r\n   \"status\":\"\",\r\n   \"project_id\":\"f72a84f7-7efb-4b79-80e6-340497807cdc\",\r\n   \"user_id\":\"48a031b3-9def-462a-8b20-62a8fc402797\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role - create task (p_owner1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 1\",\r\n   \"description\":\"\",\r\n   \"status\":\"\",\r\n   \"project_id\":\"f72a84f7-7efb-4b79-80e6-340497807cdc\",\r\n   \"user_id\":\"48a031b3-9def-462a-8b20-62a8fc402797\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role - create task (p_owner2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 4\",\r\n   \"description\":\"\",\r\n   \"status\":\"ghg\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 1\",\r\n   \"description\":\"\",\r\n   \"status\":\"\",\r\n   \"project_id\":\"f72a84f7-7efb-4b79-80e6-340497807cdc\",\r\n   \"user_id\":\"48a031b3-9def-462a-8b20-62a8fc402797\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 1\",\r\n   \"description\":\"\",\r\n   \"status\":\"\",\r\n   \"project_id\":\"f72a84f7-7efb-4b79-80e6-340497807cdc\",\r\n   \"user_id\":\"48a031b3-9def-462a-8b20-62a8fc402797\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Only PRODUCT_OWNER role can create Task\n- PRODUCT_OWNER role can only assign tasks to a team member in their project.\n- Error will be throw if supply invalid project_id or user_id.\n- Task status will default to: NOT_STARTED"
+		},
+		{
+			"name": "PUT/**",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 1\",\r\n   \"description\":\"\",\r\n   \"status\":\"\",\r\n   \"project_id\":\"f72a84f7-7efb-4b79-80e6-340497807cdc\",\r\n   \"user_id\":\"48a031b3-9def-462a-8b20-62a8fc402797\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role (p_owner1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 4\",\r\n   \"description\":\"\",\r\n   \"status\":\"IN_PROGRESS\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role (p_owner2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 4\",\r\n   \"description\":\"\",\r\n   \"status\":\"IN_PROGRESS\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role (user1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 4\",\r\n   \"description\":\"\",\r\n   \"status\":\"IN_PROGRESS\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role (user2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 4\",\r\n   \"description\":\"\",\r\n   \"status\":\"IN_PROGRESS\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 4\",\r\n   \"description\":\"\",\r\n   \"status\":\"COMPLETED\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Only PRODUCT_OWNER and USER role able to submit PUT request. \n- PRODUCT_OWNER can only edit task created by them and team member can only edit task assign to them.\n- Error will be throw if supply invalid project_id or user_id.\n- Task status can only have these value: NOT_STARTED, IN_PROGRESS, READY_FOR_TEST, COMPLETED"
+		},
+		{
+			"name": "PATCH/**",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 1\",\r\n   \"description\":\"\",\r\n   \"status\":\"\",\r\n   \"project_id\":\"f72a84f7-7efb-4b79-80e6-340497807cdc\",\r\n   \"user_id\":\"48a031b3-9def-462a-8b20-62a8fc402797\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role (p_owner1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"status\":\"READY_FOR_TEST\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role (p_owner2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 4\",\r\n   \"description\":\"\",\r\n   \"status\":\"READY_FOR_TEST\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role (user1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 4\",\r\n   \"description\":\"\",\r\n   \"status\":\"COMPLETED\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role (user2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 4\",\r\n   \"description\":\"\",\r\n   \"status\":\"COMPLETED\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"Task 4\",\r\n   \"description\":\"\",\r\n   \"status\":\"COMPLETED\",\r\n   \"project_id\":\"1642ac77-0402-478e-aec5-bac0d272a4dd\",\r\n   \"user_id\":\"0f8a58c1-d4a7-4de1-a93c-3a929ae12fef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Only PRODUCT_OWNER and USER role able to submit PATCH request. \n- PRODUCT_OWNER can only edit task created by them and team member can only edit task assign to them.\n- Error will be throw if supply invalid project_id or user_id.\n- Task status can only have these value: NOT_STARTED, IN_PROGRESS, READY_FOR_TEST, COMPLETED\n- project_id and user_id cannot be omit and null."
+		},
+		{
+			"name": "DELETE/**",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role (p_owner1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role (p_owner2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role (user1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role (user2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/tasks/d81a6dd0-5448-4a92-962e-4e70adb812bd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"d81a6dd0-5448-4a92-962e-4e70adb812bd"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Only PRODUCT_OWNER able to delete task."
+		}
+	]
+}

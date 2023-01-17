@@ -1,0 +1,1328 @@
+{
+	"info": {
+		"_postman_id": "199d27cd-a5a7-4eac-bb30-6f4a9444ef7d",
+		"name": "Project APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role - pagination",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects?pageIndex=0&pageSize=10&sortDirection=desc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortDirection",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET/**",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role - create project 1 (p_owner1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role - create project 2 (p_owner1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role - create project 3 (p_owner2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role - create project 4 (p_owner2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role - create project 5 (p_owner2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "API will failed if the project name is already persisted in the DB. Project name must be unique.\n\nOnly PRODUCT_OWNER role can create Project."
+		},
+		{
+			"name": "PUT/**",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role (p_owner1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 00012\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role (p_owner2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 00012\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 0001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- API will failed if the project name is already persisted in the DB. Project name must be unique.\n- Only PRODUCT_OWNER role able to submit PUT request."
+		},
+		{
+			"name": "PATCH/**",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role (p_owner1)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 00012\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role (p_owner2)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 00012\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 0001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\":\"Project 000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- API will failed if the project name is already persisted in the DB. Project name must be unique.\n- Only PRODUCT_OWNER role able to submit PATCH request."
+		},
+		{
+			"name": "DELETE/**",
+			"item": [
+				{
+					"name": "Unauthorized user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "abc123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "unauthuser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						},
+						"description": "Not authorize user use User API.\nUsername: unauthuser\nPassword: abc123\nExpected result: Failed to use the APIs, received HTTP status 404 Unauthorized."
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT_OWNER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "p_owner456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "p_owner2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADMIN role",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/projects/f165347b-a8d0-42a2-a933-bdf47f2546d9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"f165347b-a8d0-42a2-a933-bdf47f2546d9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- Only PRODUCT_OWNER role able to submit delete project."
+		}
+	]
+}
