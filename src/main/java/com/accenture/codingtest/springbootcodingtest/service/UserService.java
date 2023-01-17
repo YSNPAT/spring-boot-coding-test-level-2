@@ -24,46 +24,74 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(UUID id) {
-        return userRepository.findById(id).orElseThrow();
+    public User getUserById(UUID id) throws Exception {
+        Optional<User> existingUser = userRepository.findById(id);
+        if (existingUser.isPresent())
+            return existingUser.get();
+        else
+            throw new Exception("User not found");
+
     }
 
-    public void createUser(User user) throws Exception {
+    public User createUser(User user) throws Exception {
         Optional<User> userByUsername = userRepository.findUserByUsername(user.getUsername());
         if (userByUsername.isPresent())
             throw new Exception("Username has been registered");
-        userRepository.save(user);
+        else {
+            userRepository.save(user);
+            return user;
+        }
     }
 
-    public void updateUser(UUID id, User user) throws Exception {
-        User _user = userRepository.findById(id).orElseThrow();
-        Optional<User> userByUsername = userRepository.findUserByUsername(user.getUsername());
-        if (userByUsername.isPresent())
-            throw new Exception("Username has been registered");
-        _user.setUsername(user.getUsername());
-        _user.setPassword(user.getPassword());
-        userRepository.save(_user);
-    }
-
-    public void patchUser(UUID id, User user) throws Exception {
-        User _user = userRepository.findById(id).orElseThrow();
-        boolean requiredUpdate = false;
-        if (StringUtils.hasLength(user.getUsername())) {
+    public User updateUser(UUID id, User user) throws Exception {
+        Optional<User> _user = userRepository.findById(id);
+        if (_user.isPresent()) {
             Optional<User> userByUsername = userRepository.findUserByUsername(user.getUsername());
             if (userByUsername.isPresent())
                 throw new Exception("Username has been registered");
-            _user.setUsername(user.getUsername());
-            requiredUpdate = true;
-        }
-        if (StringUtils.hasLength(user.getPassword())) {
-            _user.setPassword(user.getPassword());
-            requiredUpdate = true;
-        }
-        if (requiredUpdate)
-            userRepository.save(_user);
+            else {
+                User existingUser = _user.get();
+                existingUser.setUsername(user.getUsername());
+                existingUser.setPassword(user.getPassword());
+                userRepository.save(existingUser);
+                return existingUser;
+            }
+        } else
+            throw new Exception("User not found");
     }
 
-    public void deleteUser(UUID id) {
-        userRepository.deleteById(id);
+    public User patchUser(UUID id, User user) throws Exception {
+        boolean requiredUpdate = false;
+        User existingUser = null;
+        Optional<User> _user = userRepository.findById(id);
+        if (_user.isPresent()) {
+            existingUser = _user.get();
+            if (StringUtils.hasLength(user.getUsername())) {
+                Optional<User> userByUsername = userRepository.findUserByUsername(user.getUsername());
+                if (userByUsername.isPresent())
+                    throw new Exception("Username has been registered");
+                else {
+                    existingUser.setUsername(user.getUsername());
+                    requiredUpdate = true;
+                }
+            }
+            if (StringUtils.hasLength(user.getPassword())) {
+                existingUser.setPassword(user.getPassword());
+                requiredUpdate = true;
+            }
+        } else
+            throw new Exception("User not found");
+        if (requiredUpdate)
+            userRepository.save(existingUser);
+        return existingUser;
+    }
+
+    public void deleteUser(UUID id) throws Exception {
+        Optional<User> existingUser = userRepository.findById(id);
+        if (existingUser.isPresent())
+            userRepository.deleteById(id);
+        else
+            throw new Exception("User not found");
+
     }
 }

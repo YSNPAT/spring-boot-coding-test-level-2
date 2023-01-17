@@ -25,7 +25,7 @@ public class TaskController {
         try {
             return new ResponseEntity<>(taskService.getAllTasks(), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -34,37 +34,34 @@ public class TaskController {
         try {
             return new ResponseEntity<>(taskService.getTaskById(id), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 
     @PostMapping
     public ResponseEntity<Task> createTask(@RequestBody Task task) {
         try {
-            taskService.createTask(task);
-            return new ResponseEntity<>(HttpStatus.CREATED);
+            return new ResponseEntity<>(taskService.createTask(task), HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Task> updateTask(@PathVariable UUID id, @RequestBody Task task) {
         try {
-            taskService.updateTask(id, task);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(taskService.updateTask(id, task), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<Task> patchTask(@PathVariable UUID id, @RequestBody Task task) {
         try {
-            taskService.patchTask(id, task);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity(taskService.patchTask(id, task), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -72,9 +69,9 @@ public class TaskController {
     public ResponseEntity<HttpStatus> deleteTask(@PathVariable UUID id) {
         try {
             taskService.deleteTask(id);
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity("Task has been deleted", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 }

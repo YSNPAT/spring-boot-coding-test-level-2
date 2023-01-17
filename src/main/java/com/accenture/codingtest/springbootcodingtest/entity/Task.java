@@ -27,6 +27,7 @@ public class Task {
     @NotNull
     @Column(name = "project_id")
     private UUID project_id;
+
     @NotNull
     @Column(name = "user_id")
     private UUID user_id;

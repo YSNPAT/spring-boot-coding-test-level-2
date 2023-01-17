@@ -3,6 +3,8 @@ package com.accenture.codingtest.springbootcodingtest.service;
 import com.accenture.codingtest.springbootcodingtest.entity.Project;
 import com.accenture.codingtest.springbootcodingtest.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -27,37 +29,69 @@ public class ProjectService {
         return projectRepository.findById(id).orElseThrow();
     }
 
-    public void createProject(Project project) throws Exception {
+    public Project createProject(Project project) throws Exception {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
         Optional<Project> projectByName = projectRepository.findProjectByName(project.getName());
         if (projectByName.isPresent())
             throw new Exception("Project name has been used");
-        projectRepository.save(project);
+        else {
+            Project _project = new Project();
+            _project.setName(project.getName());
+            _project.setCreated_by(currentPrincipalName);
+            projectRepository.save(_project);
+            return _project;
+        }
     }
 
-    public void updateProject(UUID id, Project project) throws Exception {
-        Project _project = projectRepository.findById(id).orElseThrow();
-        Optional<Project> projectByName = projectRepository.findProjectByName(project.getName());
-        if (projectByName.isPresent())
-            throw new Exception("Project name has been used");
-        _project.setName(project.getName());
-        projectRepository.save(_project);
-    }
-
-    public void patchProject(UUID id, Project project) throws Exception {
-        Project _project = projectRepository.findById(id).orElseThrow();
-        boolean requiredUpdate = false;
-        if (StringUtils.hasLength(project.getName())) {
+    public Project updateProject(UUID id, Project project) throws Exception {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        Optional<Project> _project = projectRepository.findById(id);
+        if (_project.isPresent()) {
             Optional<Project> projectByName = projectRepository.findProjectByName(project.getName());
             if (projectByName.isPresent())
                 throw new Exception("Project name has been used");
-            _project.setName(project.getName());
-            requiredUpdate = true;
-        }
-        if (requiredUpdate)
-            projectRepository.save(_project);
+            else {
+                Project existingProject = _project.get();
+                existingProject.setName(project.getName());
+                existingProject.setCreated_by(currentPrincipalName);
+                projectRepository.save(existingProject);
+                return existingProject;
+            }
+        } else
+            throw new Exception("Project not found");
     }
 
-    public void deleteProject(UUID id) {
-        projectRepository.deleteById(id);
+    public Project patchProject(UUID id, Project project) throws Exception {
+        boolean requiredUpdate = false;
+        Project existingProject = null;
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        Optional<Project> _project = projectRepository.findById(id);
+        if (_project.isPresent()) {
+            existingProject = _project.get();
+            if (StringUtils.hasLength(project.getName())) {
+                Optional<Project> projectByName = projectRepository.findProjectByName(project.getName());
+                if (projectByName.isPresent())
+                    throw new Exception("Project name has been used");
+                else {
+                    existingProject.setName(project.getName());
+                    existingProject.setCreated_by(currentPrincipalName);
+                    requiredUpdate = true;
+                }
+            }
+        }
+        if (requiredUpdate)
+            projectRepository.save(existingProject);
+        return existingProject;
+    }
+
+    public void deleteProject(UUID id) throws Exception {
+        Optional<Project> _project = projectRepository.findById(id);
+        if (_project.isPresent())
+            projectRepository.deleteById(id);
+        else
+            throw new Exception("Project not found");
     }
 }

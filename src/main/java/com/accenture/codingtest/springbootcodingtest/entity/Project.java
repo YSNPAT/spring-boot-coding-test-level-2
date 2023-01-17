@@ -16,23 +16,40 @@ public class Project {
     @Column(name = "name", unique = true)
     private String name;
 
+    @Column(name = "created_by")
+    private String created_by;
+
     public Project() {
     }
 
-    public Project(UUID id, String name) {
-        this.id = id;
+    public Project(String name, String created_by) {
         this.name = name;
+        this.created_by = created_by;
     }
 
-    public Project(String name) {
+    public Project(UUID id, String name, String created_by) {
+        this.id = id;
         this.name = name;
+        this.created_by = created_by;
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
+    public String getCreated_by() {
+        return created_by;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
     }
 }
