@@ -3,11 +3,11 @@ package com.accenture.codingtest.springbootcodingtest.controller;
 import com.accenture.codingtest.springbootcodingtest.entity.Project;
 import com.accenture.codingtest.springbootcodingtest.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,6 +22,7 @@ public class ProjectController {
     }
 
     @GetMapping
+//    @Cacheable(value = "project")
     public ResponseEntity<List<Project>> getAllProjects(
             @RequestParam(value = "q", required = false) String q,
             @RequestParam(value = "pageIndex", defaultValue = "0", required = false) int pageIndex,

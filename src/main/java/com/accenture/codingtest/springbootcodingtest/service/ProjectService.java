@@ -1,7 +1,6 @@
 package com.accenture.codingtest.springbootcodingtest.service;
 
 import com.accenture.codingtest.springbootcodingtest.entity.Project;
-import com.accenture.codingtest.springbootcodingtest.entity.User;
 import com.accenture.codingtest.springbootcodingtest.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
